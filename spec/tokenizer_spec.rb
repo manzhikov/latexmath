@@ -546,7 +546,9 @@ RSpec.describe Latexmath::Tokenizer do
 
   TOKENIZER_PARAMS.each do |param|
     it (param[0]).to_s do
-      expect(Latexmath::Tokenizer.new(param[1]).tokenize).to eq(param[2])
+      expect(
+        Latexmath::Tokenizer.new(param[1]).tokenize.map(&:to_s)
+      ).to eq(param[2])
     end
   end
 end

@@ -1,13 +1,17 @@
 module Latexmath::XML
   class Element
     attr_accessor :element
-    def initialize(parent, tag, attributes = {})
+
+    def initialize(tag, attributes = {})
       @element = Ox::Element.new(tag)
       attributes.each do |key, value|
         @element[key] = value
       end
-      @parent = parent.is_a?(Latexmath::XML::Element) ? parent.element : parent
-      @parent << @element
+    end
+
+    def <<(node)
+      @element << node
+      self
     end
 
     def tag=(tag)

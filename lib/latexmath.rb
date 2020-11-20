@@ -1,16 +1,22 @@
-#require 'byebug' unless RUBY_ENGINE == 'opal'
+require 'byebug' unless RUBY_ENGINE == 'opal'
 require 'json'
 require 'htmlentities'
 require 'ox'
 require_relative 'latexmath/ext'
 require_relative 'latexmath/version'
 require_relative 'latexmath/constants/symbols'
+require_relative 'latexmath/core/token'
 require_relative 'latexmath/aggregator'
 require_relative 'latexmath/converter'
+require_relative 'latexmath/latex'
+require_relative 'latexmath/math'
+require_relative 'latexmath/stomach'
 require_relative 'latexmath/symbol'
 require_relative 'latexmath/tokenizer'
+require_relative 'latexmath/xml/document'
 require_relative 'latexmath/xml/element'
 require_relative 'latexmath/equation'
+require_relative 'latexmath/util'
 
 module Latexmath
   MATRICES = [
